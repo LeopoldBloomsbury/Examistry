@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 250 248 244;
+  --foreground: 24 24 27;
+  --muted: 244 244 245;
+  --border: 228 228 231;
+  --accent: 15 23 42;
+  --card: 255 255 255;
+  --success: 22 163 74;
+  --font-sans: "Instrument Sans";
+  --font-serif: "Instrument Serif";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), rgba(250, 248, 244, 0) 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(250, 248, 244, 1) 18%);
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-family: var(--font-sans), ui-sans-serif, system-ui;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.prose code {
+  border-radius: 0.5rem;
+  background: rgba(228, 228, 231, 0.8);
+  padding: 0.15rem 0.35rem;
+}
