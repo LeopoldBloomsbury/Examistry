@@ -78,12 +78,14 @@ web_modules/
 .next
 out
 
-# Expo / React Native
-**/.expo/
-**/.expo-shared/
-apps/mobile/android/
-apps/mobile/ios/
-apps/mobile/web-build/
+# Apps / Expo / React Native
+apps/**/node_modules/
+apps/**/.expo/
+apps/**/.expo-shared/
+apps/**/.metro-cache/
+apps/**/android/
+apps/**/ios/
+apps/**/web-build/
 
 # Nuxt.js build / generate output
 .nuxt
