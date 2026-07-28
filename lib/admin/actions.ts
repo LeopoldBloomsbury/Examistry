@@ -71,7 +71,7 @@ function faqItems(formData: FormData, key: string) {
     .filter(Boolean);
 }
 
-function useCaseItems(formData: FormData, key: string) {
+function parseUseCaseItems(formData: FormData, key: string) {
   return splitLines(formData, key)
     .map((line) => {
       const [id, title, body, packSlugs] = line.split("|").map((item) => item.trim());
@@ -132,7 +132,7 @@ export async function upsertExamAction(formData: FormData) {
     hero_highlights: splitLines(formData, "heroHighlights"),
     methodology_points: splitLines(formData, "methodologyPoints"),
     trust_points: splitLines(formData, "trustPoints"),
-    use_cases: useCaseItems(formData, "useCases"),
+    use_cases: parseUseCaseItems(formData, "useCases"),
     featured_pack_slugs: splitLines(formData, "featuredPackSlugs"),
     free_guide_slug: optionalString(formData, "freeGuideSlug"),
     active: checkboxValue(formData, "active"),

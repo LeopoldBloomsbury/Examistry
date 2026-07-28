@@ -84,7 +84,7 @@ export const testimonials: Testimonial[] = [
 
 export const siteFaqs = [
   {
-    question: "Does CertKit replace a full prep course?",
+    question: "Does Examistry replace a full prep course?",
     answer:
       "No. It is designed to make an existing prep stack more focused, more navigable, and more useful."
   },
@@ -109,12 +109,12 @@ export const exams: Exam[] = [
       "Focused study packs for candidates who want a calmer, higher-yield path through core sections and discipline work.",
     isActive: true,
     sortOrder: 1,
-    heroTitle: "CPA study packs designed for clarity",
+    heroTitle: "Start CPA prep with a clear path into AUD",
     heroBody:
-      "Start with the right guide, buy only the packs that solve a real bottleneck, and study inside a dashboard that feels structured instead of chaotic.",
+      "Use the free starter guide to get oriented, then move into AUD Quickstart when audit flow, reports, and evidence questions still feel scattered.",
     heroHighlights: [
-      "Built for first-time takers and retake rescue",
-      "Section-specific packs plus a premium bundle",
+      "First paid focus: AUD Quickstart",
+      "Built for first-time takers who need sequence before volume",
       "Instant access after webhook-driven fulfillment"
     ],
     methodologyPoints: [
@@ -177,7 +177,7 @@ export const exams: Exam[] = [
         id: "use-case-first-time",
         title: "First-time taker",
         body:
-          "Use the starter guide and a section quickstart pack to establish sequence, pacing, and what matters first.",
+          "Use the starter guide to set the first two weeks, then make AUD Quickstart your first paid step if audit questions feel shapeless.",
         packSlugs: ["cpa-free-starter-guide-pack", "aud-quickstart-pack"]
       },
       {
@@ -825,14 +825,14 @@ export const freeGuides: FreeGuide[] = [
     examSlug: "cpa",
     title: "Free CPA Starter Guide",
     subtitle: "What to study first, what to ignore, and how to structure your first 14 days.",
-    promise: "Start CPA prep with clarity instead of panic, tab overload, and random advice.",
+    promise: "Start CPA prep with a 14-day plan, then know exactly when AUD Quickstart is the right next move.",
     description:
-      "A polished free guide that helps candidates begin with a credible plan before they buy anything premium.",
+      "A polished free guide that helps candidates replace vague CPA anxiety with a first two-week plan and a clear bridge into the first paid AUD offer.",
     bullets: [
       "14-day startup plan",
       "High-yield topic map",
       "Common mistakes that waste the first month",
-      "Recommended next paid pack based on your section"
+      "A concrete decision rule for moving into AUD Quickstart"
     ],
     previewCards: [
       "Day 1 setup checklist",
@@ -841,18 +841,18 @@ export const freeGuides: FreeGuide[] = [
     ],
     deliveryMode: "both",
     filePath: "/guides/cpa-starter-guide.html",
-    ctaAfterSubmit: "Continue into a section-specific starter pack or the full bundle.",
+    ctaAfterSubmit: "Continue into AUD Quickstart when you are ready for paid section work.",
     relatedPackSlug: "aud-quickstart-pack",
     privacyReassurance:
       "We store only what we need to deliver the guide, understand intent, and improve relevance. No marketplace chaos and no resold lead lists.",
     whatHappensNext: [
       "We store the lead server-side in Supabase and dedupe by email plus guide.",
       "The guide is available immediately on the thank-you page and sent by email.",
-      "The page recommends the next most relevant paid pack."
+      "The page points candidates toward AUD Quickstart as the first paid offer."
     ],
     thankYouTitle: "Your guide is ready",
     thankYouBody:
-      "Open the guide below, then use the recommended pack to move from setup into actual section work.",
+      "Open the guide below, then use AUD Quickstart to move from setup into actual section work.",
     isActive: true
   }
 ];

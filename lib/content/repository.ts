@@ -373,8 +373,6 @@ const getCatalogSnapshot = cache(async (): Promise<CatalogSnapshot> => {
 
   const examRowsById = new Map(examRows.map((exam) => [exam.id, exam]));
   const sectionRowsById = new Map(sectionRows.map((section) => [section.id, section]));
-  const packRowsById = new Map(packRows.map((pack) => [pack.id, pack]));
-
   const exams = examRows.map((row) => {
     const fallback = seedExamMap.get(row.slug);
 
