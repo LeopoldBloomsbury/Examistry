@@ -64,10 +64,10 @@ for (const pack of studyPacks) {
     assert(packBySlug.has(relatedSlug), `Pack ${pack.slug} references missing related pack ${relatedSlug}.`);
   }
 
-  for (const module of pack.modules) {
+  for (const packModule of pack.modules) {
     const lessonSlugs = new Set();
-    for (const lesson of module.lessons) {
-      assert(!lessonSlugs.has(lesson.slug), `Duplicate lesson slug ${lesson.slug} in module ${module.id}.`);
+    for (const lesson of packModule.lessons) {
+      assert(!lessonSlugs.has(lesson.slug), `Duplicate lesson slug ${lesson.slug} in module ${packModule.id}.`);
       lessonSlugs.add(lesson.slug);
     }
   }

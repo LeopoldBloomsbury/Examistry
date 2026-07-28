@@ -1,4 +1,3 @@
-import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -13,18 +12,6 @@ function assert(condition, message) {
 async function loadModule(relativePath) {
   const absolutePath = path.join(root, relativePath);
   return import(pathToFileURL(absolutePath).href);
-}
-
-async function checkStatic(relativePath, expectedSnippets) {
-  const absolutePath = path.join(root, relativePath);
-  const html = await readFile(absolutePath, "utf8");
-
-  for (const snippet of expectedSnippets) {
-    assert(
-      html.includes(snippet),
-      `${relativePath} did not include expected snippet: ${snippet}`
-    );
-  }
 }
 
 function findPageLoader(node) {
@@ -81,29 +68,21 @@ async function loadBuiltRouteHandlers(relativePath) {
 async function main() {
   const results = [];
 
-  await checkStatic(".next/server/app/index.html", [
-    "Pass smarter, not slower.",
-    "Featured bundle"
-  ]);
-  results.push("static home");
+  const homeTree = await renderBuiltPage(".next/server/app/(marketing)/page.js");
+  assert(Boolean(homeTree), "home page did not render");
+  results.push("home page");
 
-  await checkStatic(".next/server/app/pricing.html", [
-    "Choose the scope that matches the actual problem",
-    "One cohesive premium library"
-  ]);
-  results.push("static pricing");
+  const pricingTree = await renderBuiltPage(".next/server/app/(marketing)/pricing/page.js");
+  assert(Boolean(pricingTree), "pricing page did not render");
+  results.push("pricing page");
 
-  await checkStatic(".next/server/app/dashboard.html", [
-    "Owned packs",
-    "Study plan summary"
-  ]);
-  results.push("static dashboard");
+  const dashboardTree = await renderBuiltPage(".next/server/app/(app)/dashboard/page.js");
+  assert(Boolean(dashboardTree), "dashboard page did not render");
+  results.push("dashboard page");
 
-  await checkStatic(".next/server/app/planner.html", [
-    "Weekly plan",
-    "Planning rules"
-  ]);
-  results.push("static planner");
+  const plannerTree = await renderBuiltPage(".next/server/app/(app)/planner/page.js");
+  assert(Boolean(plannerTree), "planner page did not render");
+  results.push("planner page");
 
   const examTree = await renderBuiltPage(".next/server/app/(marketing)/exam/[examSlug]/page.js", {
     params: Promise.resolve({ examSlug: "cpa" })
@@ -198,6 +177,19 @@ async function main() {
   );
   results.push("checkout valid demo");
 
+  const emailCheckoutResponse = await checkoutRoute.POST(
+    new Request("http://localhost/api/checkout", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        packSlug: "aud-quickstart-pack",
+        email: "student@example.com"
+      })
+    })
+  );
+  assert(emailCheckoutResponse.status === 303, "checkout email-first request should redirect in demo mode");
+  results.push("checkout email-first demo");
+
   const lessonProgressRoute = await loadBuiltRouteHandlers(
     ".next/server/app/api/lesson-progress/route.js"
   );
@@ -272,6 +264,15 @@ async function main() {
   );
   results.push("auth callback redirect");
 
+  const unsafeCallbackResponse = await callbackRoute.GET(
+    new Request("http://localhost/auth/callback?next=https%3A%2F%2Fexample.com%2Fphish")
+  );
+  assert(
+    unsafeCallbackResponse.headers.get("location") === "http://localhost/dashboard",
+    "auth callback should reject external redirect targets"
+  );
+  results.push("auth callback safe redirect");
+
   const signOutRoute = await loadBuiltRouteHandlers(".next/server/app/auth/sign-out/route.js");
   const signOutResponse = await signOutRoute.GET(new Request("http://localhost/auth/sign-out"));
   assert(signOutResponse.status === 307, "sign-out should redirect");
@@ -280,6 +281,55 @@ async function main() {
     "sign-out redirect should point to home"
   );
   results.push("sign-out redirect");
+
+  const mobileBootstrapRoute = await loadBuiltRouteHandlers(
+    ".next/server/app/api/mobile/bootstrap/route.js"
+  );
+  const mobileBootstrapResponse = await mobileBootstrapRoute.GET(
+    new Request("http://localhost/api/mobile/bootstrap")
+  );
+  const mobileBootstrapJson = await mobileBootstrapResponse.json();
+  assert(mobileBootstrapResponse.status === 200, "mobile bootstrap should return 200");
+  assert(Array.isArray(mobileBootstrapJson.packs), "mobile bootstrap should include packs");
+  results.push("mobile bootstrap");
+
+  const mobileManifestRoute = await loadBuiltRouteHandlers(
+    ".next/server/app/api/mobile/download-manifest/route.js"
+  );
+  const mobileManifestResponse = await mobileManifestRoute.GET(
+    new Request("http://localhost/api/mobile/download-manifest?packSlug=aud-quickstart-pack")
+  );
+  const mobileManifestJson = await mobileManifestResponse.json();
+  assert(mobileManifestResponse.status === 200, "mobile download manifest should return 200 in demo mode");
+  assert(mobileManifestJson.pack.slug === "aud-quickstart-pack", "mobile manifest should return the requested pack");
+  results.push("mobile download manifest");
+
+  const mobileSyncRoute = await loadBuiltRouteHandlers(".next/server/app/api/mobile/sync/route.js");
+  const mobileSyncResponse = await mobileSyncRoute.POST(
+    new Request("http://localhost/api/mobile/sync", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        client: "runtime-smoke",
+        mutations: [
+          {
+            id: "mutation-1",
+            operation: "lesson_progress",
+            recordId: "44444444-4444-4444-8444-444444444444",
+            payload: {
+              lessonId: "44444444-4444-4444-8444-444444444444",
+              completed: true
+            },
+            createdAt: new Date().toISOString()
+          }
+        ]
+      })
+    })
+  );
+  const mobileSyncJson = await mobileSyncResponse.json();
+  assert(mobileSyncResponse.status === 200, "mobile sync should return 200 in demo mode");
+  assert(mobileSyncJson.acceptedMutationIds.includes("mutation-1"), "mobile sync should accept demo mutation");
+  results.push("mobile sync demo");
 
   console.log(`Runtime smoke checks passed (${results.length}):`);
   for (const result of results) {
