@@ -43,7 +43,7 @@ function faqLines(items: { question: string; answer: string }[]) {
   return items.map((item) => `${item.question}::${item.answer}`).join("\n");
 }
 
-function useCaseLines(
+function formatUseCaseLines(
   items: {
     id: string;
     title: string;
@@ -172,7 +172,7 @@ export function AdminExamCrud({
               label="Use cases"
               hint="One line per use case using id|title|body|pack-slug,pack-slug."
             >
-              <Textarea name="useCases" defaultValue={useCaseLines(exam.useCases)} />
+              <Textarea name="useCases" defaultValue={formatUseCaseLines(exam.useCases)} />
             </Field>
             <Field label="Featured pack slugs" hint="One pack slug per line.">
               <Textarea

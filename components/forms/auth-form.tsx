@@ -58,7 +58,7 @@ export function AuthForm({
 
       startTransition(() => {
         setMessage(
-          "Magic link sent. Open the email on this device and CertKit will reconcile any pending purchases after sign-in."
+          "Magic link sent. Open the email on this device and Examistry will reconcile any pending purchases after sign-in."
         );
       });
     } finally {
@@ -70,7 +70,7 @@ export function AuthForm({
     <Card className="w-full">
       <Badge variant="subtle">{mode === "sign-in" ? "Sign in" : "Create account"}</Badge>
       <h1 className="mt-5 font-serif text-4xl text-zinc-950">
-        {mode === "sign-in" ? "Open your study dashboard" : "Create your CertKit account"}
+        {mode === "sign-in" ? "Open your study dashboard" : "Create your Examistry account"}
       </h1>
       <p className="mt-4 text-sm leading-7 text-zinc-600">
         Magic links keep the first version simple. Use the same email as checkout to automatically reconcile pending entitlements.

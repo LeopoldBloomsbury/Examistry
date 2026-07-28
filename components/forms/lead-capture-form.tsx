@@ -110,7 +110,7 @@ export function LeadCaptureForm({
           </Select>
         </Field>
         <CheckboxField {...form.register("marketingOptIn")}>
-          Send me occasional CertKit study updates and future offer announcements.
+          Send me occasional Examistry study updates and future offer announcements.
         </CheckboxField>
         <Button className="w-full" disabled={isPending} type="submit">
           {isPending ? "Delivering guide..." : "Get the free guide"}
