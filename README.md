@@ -1,6 +1,6 @@
-# CertKit
+# Examistry
 
-CertKit is a premium e-commerce and study-delivery platform for professional exam prep. The first vertical is CPA, but the schema and UI structure support additional exam categories like NCLEX, bar prep, teacher certification, and real estate without major redesign.
+Examistry is a premium e-commerce and study-delivery platform for professional exam prep. The first vertical is CPA, but the schema and UI structure support additional exam categories like NCLEX, bar prep, teacher certification, and real estate without major redesign.
 
 ## Stack
 
@@ -27,6 +27,7 @@ CertKit is a premium e-commerce and study-delivery platform for professional exa
 
 ```text
 app/                  Routes and layouts
+apps/mobile/          Expo iOS/Android offline app
 components/           Shared UI and page sections
 lib/                  Auth, content, email, Stripe, Supabase, validation
 public/               Free-guide and asset preview documents
@@ -62,7 +63,15 @@ cp .env.example .env.local
 npm run dev
 ```
 
-5. Run the verification suite:
+5. Run the mobile app:
+
+```bash
+cd apps/mobile
+npm install
+npm run start
+```
+
+6. Run the verification suite:
 
 ```bash
 npm run verify
@@ -70,8 +79,8 @@ npm run verify
 
 ## Integration checklist
 
-- Create a Supabase project and run [`supabase/schema.sql`](/Users/claw/dev/CertKit/supabase/schema.sql)
-- Run [`supabase/seed.sql`](/Users/claw/dev/CertKit/supabase/seed.sql) so the content UUIDs match the app and Stripe metadata
+- Create a Supabase project and run [`supabase/schema.sql`](/Users/claw/dev/Examistry/supabase/schema.sql)
+- Run [`supabase/seed.sql`](/Users/claw/dev/Examistry/supabase/seed.sql) so the content UUIDs match the app and Stripe metadata
 - Configure Supabase Auth magic links
 - Map Stripe products and prices to `study_packs`
 - Point Stripe webhook to `/api/stripe/webhooks`
