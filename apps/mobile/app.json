@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Examistry",
+    "slug": "examistry-mobile",
+    "scheme": "examistry",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.examistry.mobile"
+    },
+    "android": {
+      "package": "com.examistry.mobile"
+    },
+    "plugins": [
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": true
+        }
+      ],
+      "expo-status-bar"
+    ]
+  }
+}
