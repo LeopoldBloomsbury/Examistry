@@ -1,16 +1,21 @@
 {
-  "name": "certkit",
+  "name": "examistry",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "mobile": "npm --prefix apps/mobile run start",
+    "mobile:ios": "npm --prefix apps/mobile run ios",
+    "mobile:android": "npm --prefix apps/mobile run android",
+    "mobile:typecheck": "npm --prefix apps/mobile run typecheck",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test:content": "node --experimental-strip-types scripts/catalog-integrity.mjs",
+    "test:aud-bank": "node --experimental-strip-types scripts/aud-question-bank-integrity.mjs",
     "test:runtime": "node scripts/runtime-smoke.mjs",
-    "verify": "npm run typecheck && npm run build && npm run test:content && npm run test:runtime"
+    "verify": "npm run typecheck && npm run build && npm run test:content && npm run test:aud-bank && npm run test:runtime"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
