@@ -13,7 +13,7 @@ import type {
   ServerCatalogBundle
 } from "../types";
 
-const databaseName = "examistry-offline.db";
+const databaseName = "cpa-studypilot-offline.db";
 
 let databasePromise: Promise<SQLite.SQLiteDatabase> | null = null;
 

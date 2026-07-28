@@ -1,6 +1,6 @@
-# Examistry Mobile
+# CPA StudyPilot Mobile
 
-First Expo implementation of the offline-first Examistry study app.
+First Expo implementation of the offline-first CPA StudyPilot study app.
 
 ## Architecture
 

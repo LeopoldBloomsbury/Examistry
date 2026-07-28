@@ -3,10 +3,10 @@ import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Examistry",
-    template: "%s | Examistry"
+    default: "CPA StudyPilot",
+    template: "%s | CPA StudyPilot"
   },
-  description: "Premium study packs for professional exams."
+  description: "Premium study packs and guided practice for the CPA exam."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

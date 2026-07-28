@@ -24,7 +24,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <div className="mb-8 flex items-center justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">Admin</p>
-            <h1 className="mt-2 text-3xl font-semibold text-zinc-950">Examistry control room</h1>
+            <h1 className="mt-2 text-3xl font-semibold text-zinc-950">CPA StudyPilot control room</h1>
           </div>
           <nav className="flex gap-4">
             {adminNav.map((item) => (

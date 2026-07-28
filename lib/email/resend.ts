@@ -39,10 +39,10 @@ export async function sendGuideDeliveryEmail({
   await resend.emails.send({
     from: serverEnv.resendFromEmail,
     to: email,
-    subject: `${guide.title} from Examistry`,
+    subject: `${guide.title} from CPA StudyPilot`,
     html: `
       <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#18181b;">
-        <p style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#71717a;">Examistry</p>
+        <p style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#71717a;">CPA StudyPilot</p>
         <h1 style="font-size:28px;line-height:1.2;margin:16px 0 12px;">${guide.title}</h1>
         <p style="margin:0 0 12px;color:#52525b;">${guide.subtitle}</p>
         <p style="margin:0 0 18px;color:#3f3f46;">Open your guide here: <a href="${guideUrl}" style="color:#1d4ed8;">${guideUrl}</a></p>
@@ -71,7 +71,7 @@ export async function sendPurchaseAccessEmail({
     subject: `Your ${pack.title} access is ready`,
     html: `
       <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#18181b;">
-        <p style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#71717a;">Examistry</p>
+        <p style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#71717a;">CPA StudyPilot</p>
         <h1 style="font-size:28px;line-height:1.2;margin:16px 0 12px;">${pack.title}</h1>
         <p style="margin:0 0 18px;color:#52525b;">Your purchase has been fulfilled. Open your study dashboard below.</p>
         <p style="margin:0;"><a href="${absoluteUrl("/dashboard")}" style="color:#1d4ed8;">Go to dashboard</a></p>
@@ -99,7 +99,7 @@ export async function sendPendingClaimEmail({
     subject: `Claim your ${pack.title} access`,
     html: `
       <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;padding:24px;color:#18181b;">
-        <p style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#71717a;">Examistry</p>
+        <p style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#71717a;">CPA StudyPilot</p>
         <h1 style="font-size:28px;line-height:1.2;margin:16px 0 12px;">Claim your access</h1>
         <p style="margin:0 0 18px;color:#52525b;">We received your purchase for ${pack.title}. Sign in with the same email you used at checkout and we will reconcile your entitlement automatically.</p>
         <p style="margin:0;"><a href="${absoluteUrl("/sign-in")}" style="color:#1d4ed8;">Sign in to claim access</a></p>

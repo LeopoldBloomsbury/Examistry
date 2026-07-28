@@ -8,7 +8,7 @@ function safeNextPath(value: string | null) {
   }
 
   try {
-    const parsed = new URL(value, "http://examistry.local");
+    const parsed = new URL(value, "http://cpastudypilot.local");
     return `${parsed.pathname}${parsed.search}${parsed.hash}`;
   } catch {
     return "/dashboard";

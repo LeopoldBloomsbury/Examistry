@@ -14,7 +14,7 @@ export function SiteFooter() {
     <footer className="border-t border-zinc-200 bg-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-start lg:justify-between lg:px-10">
         <div>
-          <p className="text-sm font-semibold text-zinc-900">Examistry</p>
+          <p className="text-sm font-semibold text-zinc-900">CPA StudyPilot</p>
           <p className="mt-3 max-w-md text-sm leading-7 text-zinc-600">
             Calm, premium study packs for professional exams. The initial niche is CPA, with an architecture designed to support future certification verticals without major schema changes.
           </p>

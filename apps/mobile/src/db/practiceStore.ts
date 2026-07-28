@@ -1,7 +1,7 @@
 import * as SQLite from "expo-sqlite";
 import { cpaDomains, flashcards, getDomain, practiceQuestions, type CpaDomainId } from "../data/cpaPractice";
 
-const databaseName = "examistry-cpa-practice.db";
+const databaseName = "cpa-studypilot-practice.db";
 
 let databasePromise: Promise<SQLite.SQLiteDatabase> | null = null;
 

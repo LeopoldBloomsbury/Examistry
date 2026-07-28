@@ -84,7 +84,7 @@ export const testimonials: Testimonial[] = [
 
 export const siteFaqs = [
   {
-    question: "Does Examistry replace a full prep course?",
+    question: "Does CPA StudyPilot replace a full prep course?",
     answer:
       "No. It is designed to make an existing prep stack more focused, more navigable, and more useful."
   },

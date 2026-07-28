@@ -1,6 +1,8 @@
-# Examistry
+# CPA StudyPilot
 
-Examistry is a premium e-commerce and study-delivery platform for professional exam prep. The first vertical is CPA, but the schema and UI structure support additional exam categories like NCLEX, bar prep, teacher certification, and real estate without major redesign.
+CPA StudyPilot is a premium e-commerce and study-delivery platform for CPA exam prep. The schema and UI structure support additional exam categories like NCLEX, bar prep, teacher certification, and real estate without major redesign.
+
+Production domain: [cpastudypilot.com](https://cpastudypilot.com)
 
 ## Stack
 
@@ -79,8 +81,8 @@ npm run verify
 
 ## Integration checklist
 
-- Create a Supabase project and run [`supabase/schema.sql`](/Users/claw/dev/Examistry/supabase/schema.sql)
-- Run [`supabase/seed.sql`](/Users/claw/dev/Examistry/supabase/seed.sql) so the content UUIDs match the app and Stripe metadata
+- Create a Supabase project and run [`supabase/schema.sql`](supabase/schema.sql)
+- Run [`supabase/seed.sql`](supabase/seed.sql) so the content UUIDs match the app and Stripe metadata
 - Configure Supabase Auth magic links
 - Map Stripe products and prices to `study_packs`
 - Point Stripe webhook to `/api/stripe/webhooks`

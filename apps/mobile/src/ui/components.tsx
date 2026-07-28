@@ -22,7 +22,7 @@ export function Screen({
   return (
     <View style={styles.screen}>
       <View style={styles.header}>
-        <Text style={styles.eyebrow}>Examistry</Text>
+        <Text style={styles.eyebrow}>CPA StudyPilot</Text>
         <Text style={styles.title}>{title}</Text>
         {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
       </View>

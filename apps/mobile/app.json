@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Examistry",
-    "slug": "examistry-mobile",
-    "scheme": "examistry",
+    "name": "CPA StudyPilot",
+    "slug": "cpa-studypilot-mobile",
+    "scheme": "cpastudypilot",
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -11,10 +11,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.examistry.mobile"
+      "bundleIdentifier": "com.cpastudypilot.mobile"
     },
     "android": {
-      "package": "com.examistry.mobile"
+      "package": "com.cpastudypilot.mobile"
     },
     "plugins": [
       [

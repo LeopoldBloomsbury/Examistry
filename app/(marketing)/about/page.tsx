@@ -14,7 +14,7 @@ export default async function AboutPage() {
           Study content built like product, not like clutter
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-600">
-          Examistry is meant to feel closer to Stripe, Linear, and premium DTC education than to marketplace junk. Every content object exists because it makes the user’s next decision clearer.
+          CPA StudyPilot is meant to feel closer to Stripe, Linear, and premium DTC education than to marketplace junk. Every content object exists because it makes the user’s next decision clearer.
         </p>
       </Section>
 

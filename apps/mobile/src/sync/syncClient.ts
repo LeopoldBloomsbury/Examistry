@@ -31,7 +31,7 @@ export async function syncPendingChanges(serverBaseUrl?: string): Promise<SyncRe
       ...(session?.accessToken ? { Authorization: `Bearer ${session.accessToken}` } : {})
     },
     body: JSON.stringify({
-      client: "examistry-mobile",
+      client: "cpa-studypilot-mobile",
       mutations: pending.map((item) => ({
         id: item.id,
         operation: item.operation,
