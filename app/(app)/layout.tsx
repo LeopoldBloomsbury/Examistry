@@ -24,7 +24,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <div className="mx-auto max-w-7xl px-6 py-8 lg:px-10">
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <Link href="/" className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-900">
-            CertKit
+            Examistry
           </Link>
           <nav className="flex flex-wrap items-center gap-4 rounded-full border border-zinc-200 bg-white px-4 py-2 shadow-panel">
             {appNav.map((item) => (

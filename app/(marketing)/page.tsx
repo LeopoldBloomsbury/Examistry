@@ -29,14 +29,14 @@ export default async function HomePage() {
               Pass smarter, not slower.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-              Modern study packs for high-stakes professional exams. Start with a free guide, upgrade into focused packs, and study inside a dashboard built for calm recall instead of content sprawl.
+              Modern CPA study packs for candidates who need sequence before volume. Start with the free guide, then use AUD Quickstart as the first paid step into calm recall instead of content sprawl.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild>
                 <Link href={`/free-guides/${guide.slug}`}>Get free study guide</Link>
               </Button>
               <Button asChild variant="secondary">
-                <Link href="/exam/cpa">Browse study packs</Link>
+                <Link href="/packs/aud-quickstart-pack">View AUD Quickstart</Link>
               </Button>
             </div>
             <div className="mt-10 grid gap-4 sm:grid-cols-3">

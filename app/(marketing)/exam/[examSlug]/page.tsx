@@ -41,7 +41,7 @@ export default async function ExamLandingPage({
                 <Link href={`/free-guides/${guide?.slug ?? ""}`}>Get free guide</Link>
               </Button>
               <Button asChild variant="secondary">
-                <Link href="/pricing">View bundles</Link>
+                <Link href="/packs/aud-quickstart-pack">View AUD Quickstart</Link>
               </Button>
             </div>
             <div className="mt-10 space-y-3">
@@ -64,8 +64,8 @@ export default async function ExamLandingPage({
       <Section>
         <SectionHeading
           eyebrow="Use cases"
-          title="Choose the pack based on the bottleneck, not the marketing noise"
-          description="The same exam can merchandise differently for first-time setup, retake rescue, formula recall, or section-specific cramming."
+          title="Start with the bottleneck most CPA candidates feel first"
+          description="The first paid offer is AUD Quickstart because audit flow, reports, and evidence logic are easier to fix with sequence than with more random volume."
         />
         <div className="mt-10">
           <UseCaseGrid exam={exam} />
@@ -93,7 +93,7 @@ export default async function ExamLandingPage({
         packs={featured}
         eyebrow="Featured packs"
         title={`The ${exam.name} catalog`}
-        description="Focused section starters, rescue planning, and a premium bundle."
+        description="AUD Quickstart leads the paid catalog; the other packs support formula recall, rescue planning, and bundle buyers."
       />
 
       <Section>

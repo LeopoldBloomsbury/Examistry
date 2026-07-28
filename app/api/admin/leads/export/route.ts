@@ -59,7 +59,7 @@ export async function GET() {
   return new NextResponse(lines.join("\n"), {
     headers: {
       "Content-Type": "text/csv; charset=utf-8",
-      "Content-Disposition": 'attachment; filename="certkit-leads.csv"'
+      "Content-Disposition": 'attachment; filename="examistry-leads.csv"'
     }
   });
 }

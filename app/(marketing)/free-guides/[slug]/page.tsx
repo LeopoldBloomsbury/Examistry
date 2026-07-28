@@ -53,7 +53,7 @@ export default async function FreeGuidePage({
         <Card>
           <PreviewRail
             title="What’s inside"
-            subtitle="A meaningful free guide should show enough value to justify trust before any paid CTA appears."
+            subtitle="The guide gives candidates a concrete first two weeks before pointing them toward AUD Quickstart as the first paid offer."
             items={guide.previewCards}
           />
         </Card>

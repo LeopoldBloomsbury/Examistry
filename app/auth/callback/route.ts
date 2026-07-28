@@ -2,10 +2,23 @@ import { NextResponse } from "next/server";
 import { reconcilePendingEntitlements } from "@/lib/commerce";
 import { createClient } from "@/lib/supabase/server";
 
+function safeNextPath(value: string | null) {
+  if (!value || !value.startsWith("/") || value.startsWith("//")) {
+    return "/dashboard";
+  }
+
+  try {
+    const parsed = new URL(value, "http://examistry.local");
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return "/dashboard";
+  }
+}
+
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
-  const next = requestUrl.searchParams.get("next") ?? "/dashboard";
+  const next = safeNextPath(requestUrl.searchParams.get("next"));
   const supabase = await createClient();
 
   if (code && supabase) {
